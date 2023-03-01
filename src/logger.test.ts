@@ -7,5 +7,5 @@ test('Given a logger', () => {
 
   bunyan.createLogger({ name: 'DemoApp' });
 
-  expect(bunyan.createLogger).toHaveBeenCalledTimes(0);
+  expect(bunyan.createLogger).toHaveBeenCalledTimes(1);
 });
