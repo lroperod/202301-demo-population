@@ -1,11 +1,8 @@
-import dotenv from 'dotenv';
-dotenv.config();
 import bunyan from 'bunyan';
+import log from './logger';
 
-test('Given a logger', () => {
-  bunyan.createLogger = jest.fn();
-
-  bunyan.createLogger({ name: 'DemoApp' });
-
-  expect(bunyan.createLogger).toHaveBeenCalledTimes(1);
+describe('Given a logger', () => {
+  test('When a logger is created, then it should be an instance of a bunyan logger', () => {
+    expect(log).toBeInstanceOf(bunyan);
+  });
 });
