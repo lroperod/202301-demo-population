@@ -1,15 +1,15 @@
 import moongose, { Schema } from 'mongoose';
 
 export interface User {
-  id: string;
+  name: string;
   email: string;
-  password: string;
+  followers: [string];
 }
 
 const userSchema = new Schema<User>({
-  id: String,
+  name: String,
   email: String,
-  password: String,
+  followers: [{ type: Schema.Types.ObjectId, ref: 'User' }], // Este "user" es el mismo que hemos puesto abajo
 });
 
 export const UserModel = moongose.model<User>('User', userSchema, 'users');
